@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# 定义 py4fzf 变量
+py4fzf="py4fzf_release"
+
+# 保存所有参数
+args=("$@")
+
+# 检查是否有标准输入
+if [ -t 0 ]; then
+    # 如果没有标准输入，使用 fd 命令
+    fd --type f | $py4fzf | fzf "${args[@]}" | $py4fzf -o
+else
+    # 如果有标准输入，使用管道输入
+    $py4fzf | fzf "${args[@]}" | $py4fzf -o
+fi 
