@@ -5,11 +5,14 @@ py4fzf="py4fzf_release"
 
 # 保存所有参数
 args=("$@")
+# --preview 'eaz {1}' -d '|'
 
 # 检查是否有标准输入
 if [ -t 0 ]; then
     # 如果没有标准输入，使用 fd 命令
-    fd --type f | $py4fzf | fzf "${args[@]}" | $py4fzf -o
+    # fd --type f | $py4fzf | fzf "${args[@]}" | $py4fzf -o
+    fd -H | $py4fzf | fzf "${args[@]}" | $py4fzf -o
+    # fd -H | $py4fzf | fzf "${args[@]}" --delimiter='\|' --accept-nth=1
 else
     # 如果有标准输入，使用管道输入
     $py4fzf | fzf "${args[@]}" | $py4fzf -o
