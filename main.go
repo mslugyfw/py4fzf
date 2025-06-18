@@ -32,11 +32,12 @@ func main() {
 
 		// 如果启用了 -o 选项，检查是否已经是三列格式
 		if *outputOnly {
-			parts := strings.Split(line, "|")
-			if len(parts) >= 1 {
-				fmt.Println(parts[0])
-				continue
+			if idx := strings.Index(line, "|"); idx != -1 {
+				fmt.Println(line[:idx])
+			} else {
+				fmt.Println(line)
 			}
+			continue
 		}
 
 		// 获取全拼
