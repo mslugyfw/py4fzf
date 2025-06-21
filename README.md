@@ -1,5 +1,5 @@
 # py4fzf1
-use pinyin in fzf 在fzf中使用拼音拼音首字母查询
+use pinyin in fzf 在fzf中使用拼音拼音首字母模糊查询
 ![image](https://github.com/mslugyfw/py4fzf1/blob/main/imgs/img1.jpg)
 
 # 自用备份
